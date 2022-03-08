@@ -1,31 +1,21 @@
-import axios from 'axios'
-import React, {useEffect, useState} from 'react'
-import PostsList from './components/postlist/PostsList.component'
-import {IPost} from './types/types'
+import React from 'react'
+import {Routes, Route} from 'react-router-dom'
+import PostsPage from './pages/postsPage/PostsPage.component'
+import UsersPage from './pages/usersPage/UsersPage.component'
+import UserItemPage from './pages/userItemPage/UserItemPage.component'
+import Navbar from './components/navbar/Navbar.component'
 
-const App = () => {
-  const [posts, setPosts] = useState<IPost[]>([])
-
-  useEffect(() => {
-    fetchPosts()
-  }, [])
-
-  async function fetchPosts() {
-    try {
-      const response = await axios.get<IPost[]>(
-        'https://jsonplaceholder.typicode.com/posts',
-      )
-      setPosts(response.data)
-    } catch (e) {
-      alert(e)
-    }
-  }
-
-  return (
+const App = () => (
+  <div>
     <div>
-      <PostsList posts={posts} />
+      <Navbar />
     </div>
-  )
-}
+    <Routes>
+      <Route path="/posts" element={<PostsPage />} />
+      <Route path="/users" element={<UsersPage />} />
+      <Route path="/users/:id" element={<UserItemPage />} />
+    </Routes>
+  </div>
+)
 
 export default App
