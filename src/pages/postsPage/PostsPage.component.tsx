@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
+import {useNavigate} from 'react-router'
 
 import List from '../../components/list/List.component'
 import {IPost} from '../../types/types'
@@ -7,6 +8,7 @@ import PostItem from '../../components/post/PostItem.component'
 
 const PostsPage = () => {
   const [posts, setPosts] = useState<IPost[]>([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchPosts()
@@ -27,7 +29,13 @@ const PostsPage = () => {
     <div>
       <List
         items={posts}
-        renderItem={(post: IPost) => <PostItem post={post} key={post.id} />}
+        renderItem={(post: IPost) => (
+          <PostItem
+            onClick={() => navigate(`/posts/${post.id}`)}
+            post={post}
+            key={post.id}
+          />
+        )}
       />
     </div>
   )

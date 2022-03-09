@@ -56,7 +56,13 @@ const UserItemPage: FC = () => {
       <h1>Posts of {user?.name}:</h1>
       <List
         items={posts}
-        renderItem={(post: IPost) => <PostItem post={post} key={post.id} />}
+        renderItem={(post: IPost) => (
+          <PostItem
+            onClick={() => navigate(`/posts/${post.id}`)}
+            post={post}
+            key={post.id}
+          />
+        )}
       />
     </div>
   )
