@@ -6,6 +6,7 @@ export const UserConteiner = styled.div`
   border: 1px solid yellow;
   background-color: grey;
   margin: 20px;
+  cursor: pointer;
 `
 export const UserLine = styled.div`
   margin: 10px;

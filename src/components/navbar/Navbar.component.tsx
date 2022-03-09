@@ -5,8 +5,8 @@ import {Conteiner} from './Navbar.styles'
 
 const Navbar: FC = () => (
   <Conteiner>
-    <Link to="/posts">Список постов</Link>
-    <Link to="/users">Список пользователей</Link>
+    <Link to="/posts">Posts list</Link>
+    <Link to="/users">Users list</Link>
   </Conteiner>
 )
 
