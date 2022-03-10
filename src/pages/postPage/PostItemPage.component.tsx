@@ -45,7 +45,7 @@ const PostItemPage: FC = () => {
 
   return (
     <div>
-      <button onClick={() => navigate('/posts')} type="button">
+      <button onClick={() => navigate('/')} type="button">
         Назад
       </button>
       <div>
