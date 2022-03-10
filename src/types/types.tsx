@@ -5,6 +5,14 @@ export interface IPost {
   userId: number
 }
 
+export interface IComment {
+  name: string
+  email: string
+  body: string
+  id: number
+  postId: number
+}
+
 export interface IAddress {
   street: string
   city: string

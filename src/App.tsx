@@ -12,7 +12,7 @@ const App = () => (
       <Navbar />
     </div>
     <Routes>
-      <Route path="/posts" element={<PostsPage />} />
+      <Route path="/" element={<PostsPage />} />
       <Route path="/users" element={<UsersPage />} />
       <Route path="/users/:id" element={<UserItemPage />} />
       <Route path="/posts/:id" element={<PostItemPage />} />
