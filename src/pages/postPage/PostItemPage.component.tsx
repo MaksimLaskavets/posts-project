@@ -46,7 +46,7 @@ const PostItemPage: FC = () => {
   return (
     <div>
       <button onClick={() => navigate('/')} type="button">
-        Назад
+        &#11013; Back
       </button>
       <div>
         <h1>

@@ -46,7 +46,7 @@ const UserItemPage: FC = () => {
   return (
     <div>
       <button onClick={() => navigate('/users')} type="button">
-        Назад
+        &#11013; Back
       </button>
       <div>
         <h1>User {user?.name}</h1>
