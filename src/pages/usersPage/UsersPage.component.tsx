@@ -1,28 +1,27 @@
-import React, {FC, useEffect, useState} from 'react'
-import axios from 'axios'
+import React, {FC, useEffect} from 'react'
 import {useNavigate} from 'react-router'
 
+import {useDispatch} from 'react-redux'
 import List from '../../components/list/List.component'
 import UserItem from '../../components/user/userItem/UserItem.component'
 import {IUser} from '../../types/types'
+import {useTypedSelector} from '../../hooks/useTypedSelector'
+import {fetchUsers} from '../../redux/action-creators/user'
 
 const UsersPage: FC = () => {
-  const [users, setUsers] = useState<IUser[]>([])
+  const {users, loading, error} = useTypedSelector((state) => state.user)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetchUsers()
+    dispatch(fetchUsers())
   }, [])
 
-  async function fetchUsers() {
-    try {
-      const response = await axios.get<IUser[]>(
-        'https://jsonplaceholder.typicode.com/users',
-      )
-      setUsers(response.data)
-    } catch (e) {
-      alert(e)
-    }
+  if (loading) {
+    return <h1>Loading...</h1>
+  }
+  if (error) {
+    return <h1>Error</h1>
   }
 
   return (

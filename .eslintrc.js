@@ -24,6 +24,8 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'default-param-last': 0,
+    '@typescript-eslint/no-explicit-any': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
