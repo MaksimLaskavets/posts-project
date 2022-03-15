@@ -1,20 +1,19 @@
 import React, {FC, useEffect} from 'react'
 import {useNavigate} from 'react-router'
 
-import {useDispatch} from 'react-redux'
 import List from '../../components/list/List.component'
 import UserItem from '../../components/user/userItem/UserItem.component'
 import {IUser} from '../../types/types'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
-import {fetchUsers} from '../../redux/action-creators/user'
+import {useActions} from '../../hooks/useActions'
 
 const UsersPage: FC = () => {
   const {users, loading, error} = useTypedSelector((state) => state.user)
-  const dispatch = useDispatch()
+  const {fetchUsers} = useActions()
   const navigate = useNavigate()
 
   useEffect(() => {
-    dispatch(fetchUsers())
+    fetchUsers()
   }, [])
 
   if (loading) {
