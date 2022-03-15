@@ -5,24 +5,23 @@ import {useNavigate} from 'react-router'
 import List from '../../components/list/List.component'
 import {IPost} from '../../types/types'
 import PostItem from '../../components/post/PostItem.component'
+import {useTypedSelector} from '../../hooks/useTypedSelector'
+import {useActions} from '../../hooks/useActions'
 
 const PostsPage = () => {
-  const [posts, setPosts] = useState<IPost[]>([])
+  const {posts, loading, error} = useTypedSelector((state) => state.posts)
+  const {fetchPosts} = useActions()
   const navigate = useNavigate()
 
   useEffect(() => {
     fetchPosts()
   }, [])
 
-  async function fetchPosts() {
-    try {
-      const response = await axios.get<IPost[]>(
-        'https://jsonplaceholder.typicode.com/posts',
-      )
-      setPosts(response.data)
-    } catch (e) {
-      alert(e)
-    }
+  if (loading) {
+    return <h1>Loading...</h1>
+  }
+  if (error) {
+    return <h1>Error</h1>
   }
 
   return (
