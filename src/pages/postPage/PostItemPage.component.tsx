@@ -5,32 +5,26 @@ import axios from 'axios'
 import List from '../../components/list/List.component'
 import CommentItem from '../../components/comment/CommentItem.component'
 import {IPost, IComment} from '../../types/types'
+import {useTypedSelector} from '../../hooks/useTypedSelector'
+import {useActions} from '../../hooks/useActions'
 
 interface PostPageParams {
   id: string
 }
 
 const PostItemPage: FC = () => {
-  const [post, setPost] = useState<IPost | null>(null)
-  const [comments, setComments] = useState<IComment[]>([])
+  //   const [post, setPost] = useState<IPost | null>(null)
   const paramsPost = useParams<keyof PostPageParams>() as PostPageParams
+
+  const {post, loading, error} = useTypedSelector((state) => state.post)
+  const {fetchPost} = useActions()
+  const [comments, setComments] = useState<IComment[]>([])
   const navigate = useNavigate()
 
   useEffect(() => {
     fetchPost()
     fetchComments()
   }, [])
-
-  async function fetchPost() {
-    try {
-      const response = await axios.get<IPost>(
-        `https://jsonplaceholder.typicode.com/posts/${paramsPost.id}`,
-      )
-      setPost(response.data)
-    } catch (e) {
-      alert(e)
-    }
-  }
 
   async function fetchComments() {
     try {
@@ -41,6 +35,13 @@ const PostItemPage: FC = () => {
     } catch (e) {
       alert(e)
     }
+  }
+
+  if (loading) {
+    return <h1>Loading...</h1>
+  }
+  if (error) {
+    return <h1>Error</h1>
   }
 
   return (

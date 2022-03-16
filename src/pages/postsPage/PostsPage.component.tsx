@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import React, {useEffect} from 'react'
 import {useNavigate} from 'react-router'
 
 import List from '../../components/list/List.component'
