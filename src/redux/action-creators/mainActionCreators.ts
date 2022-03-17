@@ -5,8 +5,6 @@ import {PostsAction, PostsActionTypes} from '../../types/posts'
 import {UserAction, UserActionTypes} from '../../types/user'
 import {PostPageParams, PostAction, PostActionTypes} from '../../types/post'
 
-const paramsPost = useParams<keyof PostPageParams>() as PostPageParams
-
 export const fetchPosts = () => async (dispatch: Dispatch<PostsAction>) => {
   try {
     dispatch({type: PostsActionTypes.FETCH_POSTS})
@@ -25,6 +23,8 @@ export const fetchPosts = () => async (dispatch: Dispatch<PostsAction>) => {
 }
 
 export const fetchPost = () => async (dispatch: Dispatch<PostAction>) => {
+  const paramsPost = useParams<keyof PostPageParams>() as PostPageParams
+
   try {
     dispatch({type: PostActionTypes.FETCH_POST})
     const response = await axios.get(

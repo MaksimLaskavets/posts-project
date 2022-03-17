@@ -43,7 +43,6 @@ const PostItemPage: FC = () => {
   if (error) {
     return <h1>Error</h1>
   }
-
   return (
     <div>
       <button onClick={() => navigate('/')} type="button">
@@ -51,9 +50,9 @@ const PostItemPage: FC = () => {
       </button>
       <div>
         <h1>
-          Post № {post?.id}. {post?.title}
+          Post № {post.id}. {post.title}
         </h1>
-        <h2>{post?.body}</h2>
+        <h2>{post.body}</h2>
       </div>
       <List
         items={comments}

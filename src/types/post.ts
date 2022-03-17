@@ -1,14 +1,8 @@
-// export interface PostInPostState {
-//   id: string
-//   title: string
-//   body: string
-// }
-
 export interface PostState {
   post: {
-    id: null | string
-    body: null | string
-    title: null | string
+    id: string
+    body: string
+    title: string
   }
   loading: boolean
   error: null | string
@@ -30,7 +24,7 @@ interface FetchPostAction {
 
 interface FetchPostSuccessAction {
   type: PostActionTypes.FETCH_POST_SUCCESS
-  payload: string
+  payload: {id: string; body: string; title: string}
 }
 
 interface FetchPostErrorAction {
