@@ -1,7 +1,7 @@
 export interface PostsState {
   posts: any[]
-  loading: boolean
-  error: null | string
+  loadingPosts: boolean
+  errorPosts: null | string
 }
 
 export enum PostsActionTypes {

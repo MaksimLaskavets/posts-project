@@ -8,7 +8,9 @@ import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {useActions} from '../../hooks/useActions'
 
 const PostsPage = () => {
-  const {posts, loading, error} = useTypedSelector((state) => state.posts)
+  const {posts, loadingPosts, errorPosts} = useTypedSelector(
+    (state) => state.posts,
+  )
   const {fetchPosts} = useActions()
   const navigate = useNavigate()
 
@@ -16,10 +18,10 @@ const PostsPage = () => {
     fetchPosts()
   }, [])
 
-  if (loading) {
+  if (loadingPosts) {
     return <h1>Loading...</h1>
   }
-  if (error) {
+  if (errorPosts) {
     return <h1>Error</h1>
   }
 

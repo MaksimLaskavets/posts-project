@@ -8,7 +8,7 @@ import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {useActions} from '../../hooks/useActions'
 
 const UsersPage: FC = () => {
-  const {users, loading, error} = useTypedSelector((state) => state.user)
+  const {users, loading, error} = useTypedSelector((state) => state.users)
   const {fetchUsers} = useActions()
   const navigate = useNavigate()
 

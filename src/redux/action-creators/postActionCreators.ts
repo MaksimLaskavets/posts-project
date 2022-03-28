@@ -3,7 +3,6 @@ import {Dispatch} from 'react'
 
 import {PostsAction, PostsActionTypes} from '../../types/posts'
 import {PostAction, PostActionTypes} from '../../types/post'
-import {IPost} from '../../types/types'
 
 export const fetchPosts = () => async (dispatch: Dispatch<PostsAction>) => {
   try {
@@ -16,7 +15,7 @@ export const fetchPosts = () => async (dispatch: Dispatch<PostsAction>) => {
         type: PostsActionTypes.FETCH_POSTS_SUCCESS,
         payload: response.data,
       })
-    }, 1000)
+    }, 500)
   } catch (error) {
     dispatch({type: PostsActionTypes.FETCH_POSTS_ERROR, payload: 'Error'})
   }
@@ -34,7 +33,7 @@ export function fetchPost(id: string | undefined) {
           type: PostActionTypes.FETCH_POST_SUCCESS,
           payload: response.data,
         })
-      }, 1000)
+      }, 500)
     } catch (error) {
       dispatch({type: PostActionTypes.FETCH_POST_ERROR, payload: 'Error'})
     }

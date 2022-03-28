@@ -1,30 +1,35 @@
+import {IUser} from './types'
+
+export type UserItemPageParams = {
+  id: string
+}
 export interface UserState {
-  users: any[]
-  loading: boolean
-  error: null | string
+  user: undefined | IUser
+  loadingUser: boolean
+  errorUser: null | string
 }
 
 export enum UserActionTypes {
-  FETCH_USERS = 'FETCH_USERS',
-  FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS',
-  FETCH_USERS_ERROR = 'FETCH_USERS_ERROR',
+  FETCH_USER = 'FETCH_USER',
+  FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS',
+  FETCH_USER_ERROR = 'FETCH_USER_ERROR',
 }
 
-interface FetchUsersAction {
-  type: UserActionTypes.FETCH_USERS
+interface FetchUserAction {
+  type: UserActionTypes.FETCH_USER
 }
 
-interface FetchUsersSuccessAction {
-  type: UserActionTypes.FETCH_USERS_SUCCESS
-  payload: any[]
+interface FetchUserSuccessAction {
+  type: UserActionTypes.FETCH_USER_SUCCESS
+  payload: IUser
 }
 
-interface FetchUsersErrorAction {
-  type: UserActionTypes.FETCH_USERS_ERROR
+interface FetchUserErrorAction {
+  type: UserActionTypes.FETCH_USER_ERROR
   payload: string
 }
 
 export type UserAction =
-  | FetchUsersAction
-  | FetchUsersSuccessAction
-  | FetchUsersErrorAction
+  | FetchUserAction
+  | FetchUserSuccessAction
+  | FetchUserErrorAction

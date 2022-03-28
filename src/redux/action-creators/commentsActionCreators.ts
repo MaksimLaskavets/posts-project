@@ -15,7 +15,7 @@ export function fetchComments(id: string | undefined) {
           type: CommentsActionTypes.FETCH_COMMENTS_SUCCESS,
           payload: response.data,
         })
-      }, 1000)
+      }, 500)
     } catch (error) {
       dispatch({
         type: CommentsActionTypes.FETCH_COMMENTS_ERROR,

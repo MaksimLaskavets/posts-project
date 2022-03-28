@@ -1,46 +1,32 @@
-import React, {FC, useEffect, useState} from 'react'
-import axios from 'axios'
+import React, {FC, useEffect} from 'react'
 import {useParams, useNavigate} from 'react-router'
 
-import {IUser, IPost} from '../../types/types'
+import {IPost} from '../../types/types'
 import List from '../../components/list/List.component'
 import PostItem from '../../components/post/PostItem.component'
-
-interface UserItemPageParams {
-  id: string
-}
+import {UserItemPageParams} from '../../types/users'
+import {useActions} from '../../hooks/useActions'
+import {useTypedSelector} from '../../hooks/useTypedSelector'
 
 const UserItemPage: FC = () => {
-  const [user, setUser] = useState<IUser | null>(null)
-  const [posts, setPosts] = useState<IPost[]>([])
-  const paramsUser = useParams<keyof UserItemPageParams>() as UserItemPageParams
+  const {user, loadingUser, errorUser} = useTypedSelector((state) => state.user)
+  const {posts, loadingPosts, errorPosts} = useTypedSelector(
+    (state) => state.posts,
+  )
+  const {fetchUsersPosts, fetchUser} = useActions()
+  const {id} = useParams<UserItemPageParams>()
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetchUser()
-    fetchPosts()
+    fetchUser(id)
+    fetchUsersPosts(id)
   }, [])
 
-  async function fetchPosts() {
-    try {
-      const response = await axios.get<IPost[]>(
-        `https://jsonplaceholder.typicode.com/users/${paramsUser.id}/posts`,
-      )
-      setPosts(response.data)
-    } catch (e) {
-      alert(e)
-    }
+  if (loadingUser || loadingPosts || !user) {
+    return <h1>Loading...</h1>
   }
-
-  async function fetchUser() {
-    try {
-      const response = await axios.get<IUser>(
-        `https://jsonplaceholder.typicode.com/users/${paramsUser.id}`,
-      )
-      setUser(response.data)
-    } catch (e) {
-      alert(e)
-    }
+  if (errorUser || errorPosts) {
+    return <h1>Error</h1>
   }
 
   return (
