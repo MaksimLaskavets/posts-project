@@ -1,11 +1,11 @@
+export type Post = {
+  title: string
+  body: string
+}
 export interface PostState {
-  post: {
-    id: string
-    body: string
-    title: string
-  }
-  loading: boolean
-  error: null | string
+  post: undefined | Post
+  loadingPost: boolean
+  errorPost: null | string
 }
 
 export enum PostActionTypes {
@@ -14,17 +14,16 @@ export enum PostActionTypes {
   FETCH_POST_ERROR = 'FETCH_POST_ERROR',
 }
 
-export interface PostPageParams {
-  id: string
+export type PostPageParams = {
+  id: string | undefined
 }
-
 interface FetchPostAction {
   type: PostActionTypes.FETCH_POST
 }
 
 interface FetchPostSuccessAction {
   type: PostActionTypes.FETCH_POST_SUCCESS
-  payload: {id: string; body: string; title: string}
+  payload: Post
 }
 
 interface FetchPostErrorAction {

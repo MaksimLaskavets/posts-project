@@ -1,48 +1,34 @@
-import React, {FC, useEffect, useState} from 'react'
-import {useNavigate, useParams} from 'react-router'
-import axios from 'axios'
+import React, {FC, useEffect} from 'react'
+import {useNavigate, useParams} from 'react-router-dom'
 
 import List from '../../components/list/List.component'
 import CommentItem from '../../components/comment/CommentItem.component'
-import {IPost, IComment} from '../../types/types'
+import {IComment} from '../../types/types'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {useActions} from '../../hooks/useActions'
-
-interface PostPageParams {
-  id: string
-}
+import {PostPageParams} from '../../types/post'
 
 const PostItemPage: FC = () => {
-  //   const [post, setPost] = useState<IPost | null>(null)
-  const paramsPost = useParams<keyof PostPageParams>() as PostPageParams
-
-  const {post, loading, error} = useTypedSelector((state) => state.post)
-  const {fetchPost} = useActions()
-  const [comments, setComments] = useState<IComment[]>([])
+  const {post, loadingPost, errorPost} = useTypedSelector((state) => state.post)
+  const {comments, loadingComments, errorComments} = useTypedSelector(
+    (state) => state.comments,
+  )
+  const {fetchPost, fetchComments} = useActions()
   const navigate = useNavigate()
+  const {id} = useParams<PostPageParams>()
 
   useEffect(() => {
-    fetchPost()
-    fetchComments()
+    fetchPost(id)
+    fetchComments(id)
   }, [])
 
-  async function fetchComments() {
-    try {
-      const response = await axios.get<IComment[]>(
-        `https://jsonplaceholder.typicode.com/posts/${paramsPost.id}/comments`,
-      )
-      setComments(response.data)
-    } catch (e) {
-      alert(e)
-    }
-  }
-
-  if (loading) {
+  if (loadingPost || loadingComments || !post) {
     return <h1>Loading...</h1>
   }
-  if (error) {
+  if (errorPost || errorComments) {
     return <h1>Error</h1>
   }
+
   return (
     <div>
       <button onClick={() => navigate('/')} type="button">
@@ -50,9 +36,9 @@ const PostItemPage: FC = () => {
       </button>
       <div>
         <h1>
-          Post № {post.id}. {post.title}
+          Post № {id}. {post?.title}
         </h1>
-        <h2>{post.body}</h2>
+        <h2>{}</h2>
       </div>
       <List
         items={comments}
