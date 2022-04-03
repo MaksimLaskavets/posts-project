@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import {useNavigate} from 'react-router'
 
+import {LoadingOutlined} from '@ant-design/icons'
 import List from '../../components/list/List.component'
 import {IPost} from '../../types/types'
 import PostItem from '../../components/post/PostItem.component'
@@ -19,7 +20,12 @@ const PostsPage = () => {
   }, [])
 
   if (loadingPosts) {
-    return <h1>Loading...</h1>
+    return (
+      <div>
+        Loading
+        <LoadingOutlined />
+      </div>
+    )
   }
   if (errorPosts) {
     return <h1>Error</h1>

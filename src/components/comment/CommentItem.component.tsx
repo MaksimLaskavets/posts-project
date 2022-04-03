@@ -1,6 +1,13 @@
+import {HeartOutlined, MessageOutlined} from '@ant-design/icons'
 import React, {FC} from 'react'
 import {IComment} from '../../types/types'
-import {CommentConteiner, CommentLine} from './Comment.styles'
+import Profile from '../icons/Profile'
+import {
+  CommentBody,
+  CommentConteiner,
+  CommentLine,
+  Hover,
+} from './Comment.styles'
 
 interface PostProps {
   comment: IComment
@@ -9,9 +16,21 @@ interface PostProps {
 const CommentItem: FC<PostProps> = ({comment}) => (
   <CommentConteiner>
     <CommentLine>
-      {comment.name.toUpperCase()} from {comment.email}
+      <Hover>
+        <Profile />
+      </Hover>{' '}
+      {comment.email}
     </CommentLine>
-    <CommentLine>{comment.body}</CommentLine>
+    <CommentLine>{comment.name.toUpperCase()}</CommentLine>
+    <CommentBody>{comment.body}</CommentBody>
+    <CommentLine>
+      <Hover>
+        <MessageOutlined />
+      </Hover>
+      <Hover>
+        <HeartOutlined />
+      </Hover>
+    </CommentLine>
   </CommentConteiner>
 )
 

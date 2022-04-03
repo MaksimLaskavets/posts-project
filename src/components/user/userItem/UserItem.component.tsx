@@ -1,6 +1,7 @@
 import React, {FC} from 'react'
 import {IUser} from '../../../types/types'
-import {UserConteiner, UserLine} from './UserItem.styles'
+import Profile from '../../icons/Profile'
+import {Div, UserConteiner, UserLine} from './UserItem.styles'
 
 interface PostProps {
   user: IUser
@@ -10,7 +11,12 @@ interface PostProps {
 const UserItem: FC<PostProps> = ({user, onClick}) => (
   <UserConteiner>
     <UserLine onClick={() => onClick(user)}>
-      {user.id}. {user.name}
+      <Div>
+        <Profile />
+      </Div>
+      <Div>
+        {user.id}. {user.name}
+      </Div>
     </UserLine>
   </UserConteiner>
 )

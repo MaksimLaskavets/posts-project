@@ -1,14 +1,25 @@
 import styled from 'styled-components'
 
 export const CommentConteiner = styled.div`
-  max-width: 100%;
+  max-width: 50%;
   height: 100%;
-  border: 1px solid yellow;
-  border-radius: 10px;
-  background-color: grey;
-  margin: 20px;
-  cursor: pointer;
+  margin: 5px 0px;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  background-color: #ffd591;
 `
 export const CommentLine = styled.div`
   margin: 10px;
+  display: flex;
+`
+export const CommentBody = styled.div`
+  margin: 10px;
+  display: flex;
+`
+export const Hover = styled.p`
+  padding: 0px 10px;
+  :hover {
+    color: white;
+    cursor: pointer;
+  }
 `

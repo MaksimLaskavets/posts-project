@@ -5,19 +5,20 @@ import UsersPage from './pages/usersPage/UsersPage.component'
 import UserItemPage from './pages/userItemPage/UserItemPage.component'
 import PostItemPage from './pages/postPage/PostItemPage.component'
 import Navbar from './components/navbar/Navbar.component'
+import {AppWrap, NavbarWrap} from './App.styles'
 
 const App = () => (
-  <div>
-    <div>
+  <AppWrap>
+    <NavbarWrap>
       <Navbar />
-    </div>
+    </NavbarWrap>
     <Routes>
       <Route path="/" element={<PostsPage />} />
       <Route path="/users" element={<UsersPage />} />
       <Route path="/users/:id" element={<UserItemPage />} />
       <Route path="/posts/:id" element={<PostItemPage />} />
     </Routes>
-  </div>
+  </AppWrap>
 )
 
 export default App

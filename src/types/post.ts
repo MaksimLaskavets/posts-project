@@ -15,7 +15,7 @@ export enum PostActionTypes {
 }
 
 export type PostPageParams = {
-  id: string | undefined
+  id: string
 }
 interface FetchPostAction {
   type: PostActionTypes.FETCH_POST
