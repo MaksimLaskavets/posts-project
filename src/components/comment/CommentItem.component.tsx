@@ -1,4 +1,4 @@
-import {HeartOutlined, MessageOutlined} from '@ant-design/icons'
+import {HeartOutlined} from '@ant-design/icons'
 import React, {FC} from 'react'
 
 import {IComment} from '../../types/types'
@@ -26,9 +26,6 @@ const CommentItem: FC<PostProps> = ({comment}) => (
     <CommentLine>{comment.name.toUpperCase()}</CommentLine>
     <CommentBody>{comment.body}</CommentBody>
     <CommentLine>
-      <Hover>
-        <MessageOutlined />
-      </Hover>
       <Hover>
         <HeartOutlined />
       </Hover>
