@@ -6,7 +6,6 @@ import Location from '../icons/Location'
 import Profile from '../icons/Profile'
 
 import {Div, Hover, UserInfoWrap} from './UserInfo.styles'
-import {Inline} from '../../App.styles'
 
 interface PostProps {
   user: IUser

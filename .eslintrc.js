@@ -26,6 +26,8 @@ module.exports = {
   rules: {
     'default-param-last': 0,
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-var-requires': 0,
+    'global-require': 0,
     'import/extensions': [
       'error',
       'ignorePackages',

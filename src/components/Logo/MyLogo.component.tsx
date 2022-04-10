@@ -1,3 +1,9 @@
 import React from 'react'
 
-export const MyLogo = () => <div>Logo</div>
+import {MyLogoWrap} from './MyLogo.styles'
+
+export const MyLogo = () => (
+  <MyLogoWrap to="/signin">
+    <img src="./Logo.svg" alt="Logo" />
+  </MyLogoWrap>
+)

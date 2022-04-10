@@ -12,6 +12,7 @@ export const PostInfoWrap = styled.div`
 `
 export const BodyDiv = styled.div`
   margin: 5px 0px;
+  font-family: URW Chancery L, cursive;
 `
 
 export const TitleDiv = styled.div`

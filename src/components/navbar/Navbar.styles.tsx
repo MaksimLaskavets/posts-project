@@ -13,8 +13,9 @@ export const Conteiner = styled.div`
 export const LinksWrap = styled.div`
   width: 30vw;
   display: flex;
+  margin: 20px 0;
   justify-content: space-around;
 `
 export const LogoWrap = styled.div`
-  margin: 0 20px;
+  margin: 20px;
 `
