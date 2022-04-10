@@ -7,6 +7,9 @@ import {IPost} from '../../types/types'
 import PostItem from '../../components/post/PostItem.component'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {useActions} from '../../hooks/useActions'
+import {MyInput} from '../../components/input/MyInput'
+
+import {Input} from './PostsPage.styles'
 
 const PostsPage = () => {
   const {posts, loadingPosts, errorPosts} = useTypedSelector(
@@ -33,6 +36,9 @@ const PostsPage = () => {
 
   return (
     <div>
+      <Input>
+        Search <MyInput />
+      </Input>
       <List
         items={posts}
         renderItem={(post: IPost) => (

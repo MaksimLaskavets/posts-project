@@ -1,12 +1,18 @@
 import React, {FC} from 'react'
 import {Link} from 'react-router-dom'
+import {MyLogo} from '../Logo/MyLogo.component'
 
-import {Conteiner} from './Navbar.styles'
+import {Conteiner, LinksWrap, LogoWrap} from './Navbar.styles'
 
 const Navbar: FC = () => (
   <Conteiner>
-    <Link to="/users">Users list</Link>
-    <Link to="/">Posts list</Link>
+    <LogoWrap>
+      <MyLogo />
+    </LogoWrap>
+    <LinksWrap>
+      <Link to="/users">Users list</Link>
+      <Link to="/">Posts list</Link>
+    </LinksWrap>
   </Conteiner>
 )
 

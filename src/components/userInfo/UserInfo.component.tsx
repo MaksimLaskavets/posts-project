@@ -5,7 +5,7 @@ import {IUser} from '../../types/types'
 import Location from '../icons/Location'
 import Profile from '../icons/Profile'
 
-import {Hover, UserInfoWrap} from './UserInfo.styles'
+import {Div, Hover, UserInfoWrap} from './UserInfo.styles'
 import {Inline} from '../../App.styles'
 
 interface PostProps {
@@ -14,25 +14,25 @@ interface PostProps {
 
 const UserInfo: FC<PostProps> = ({user}) => (
   <UserInfoWrap>
-    <Inline>
+    <Div>
       <Hover>
         <Profile />
       </Hover>
       <div>{user?.name}</div>
-    </Inline>
-    <Inline>
+    </Div>
+    <Div>
       <Hover>
         <Location />
       </Hover>
       {user?.address.city} {user?.address.street}
-    </Inline>
-    <Inline>
+    </Div>
+    <Div>
       <Hover>
         <MailOutlined />
       </Hover>
       {user?.email}
-    </Inline>
-    <Inline>Posts of {user?.name}:</Inline>
+    </Div>
+    <Div>Posts of {user?.name}:</Div>
   </UserInfoWrap>
 )
 

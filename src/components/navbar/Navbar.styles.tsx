@@ -8,5 +8,13 @@ export const Conteiner = styled.div`
   border-radius: 5px;
   background-color: #ffd591;
   display: flex;
+  justify-content: space-between;
+`
+export const LinksWrap = styled.div`
+  width: 30vw;
+  display: flex;
   justify-content: space-around;
+`
+export const LogoWrap = styled.div`
+  margin: 0 20px;
 `

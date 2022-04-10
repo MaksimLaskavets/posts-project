@@ -3,11 +3,12 @@ import styled from 'styled-components'
 export const PostInfoWrap = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid #d9d9d9;
+  border: 1px solid grey;
   border-radius: 5px;
-  background-color: #ffd591;
+  background-color: #fff7e6;
   width: 70%;
   padding: 10px;
+  font-size: 20px;
 `
 export const BodyDiv = styled.div`
   margin: 5px 0px;
