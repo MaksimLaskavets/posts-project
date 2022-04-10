@@ -4,7 +4,6 @@ export const NavbarWrap = styled.div`
   position: sticky;
   top: 0px;
 `
-
 export const Global = createGlobalStyle`
 a {
 text-decoration: none;
@@ -57,7 +56,6 @@ export const Inline = styled.div`
   display: flex;
   margin: 5px 0px;
 `
-
 export const AppWrap = styled.div`
   display: flex;
   flex-direction: column;

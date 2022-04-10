@@ -1,5 +1,7 @@
 import React, {FC} from 'react'
+
 import {IPost} from '../../types/types'
+
 import {PostConteiner, PostLine} from './Post.styles'
 
 interface PostProps {

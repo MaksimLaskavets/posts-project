@@ -1,6 +1,8 @@
 import React, {FC} from 'react'
+
 import {IUser} from '../../../types/types'
 import Profile from '../../icons/Profile'
+
 import {Div, UserConteiner, UserLine} from './UserItem.styles'
 
 interface PostProps {

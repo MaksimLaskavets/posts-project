@@ -9,8 +9,9 @@ import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {useActions} from '../../hooks/useActions'
 import {PostPageParams} from '../../types/post'
 import PostInfo from '../../components/postInfo/PostInfo.component'
-import {PostPageWrap} from './PostPage.styles'
 import {MyButton} from '../../components/button/Button.component'
+
+import {PostPageWrap} from './PostPage.styles'
 
 const PostItemPage: FC = () => {
   const {post, loadingPost, errorPost} = useTypedSelector((state) => state.post)

@@ -1,6 +1,7 @@
 import React, {FC} from 'react'
 
 import {Post} from '../../types/post'
+
 import {BodyDiv, TitleDiv, PostInfoWrap} from './PostInfo.styles'
 
 interface PostProps {

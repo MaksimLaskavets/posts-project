@@ -1,10 +1,12 @@
 import {MailOutlined} from '@ant-design/icons'
 import React, {FC} from 'react'
-import {Inline} from '../../App.styles'
+
 import {IUser} from '../../types/types'
 import Location from '../icons/Location'
 import Profile from '../icons/Profile'
+
 import {Hover, UserInfoWrap} from './UserInfo.styles'
+import {Inline} from '../../App.styles'
 
 interface PostProps {
   user: IUser
@@ -15,13 +17,13 @@ const UserInfo: FC<PostProps> = ({user}) => (
     <Inline>
       <Hover>
         <Profile />
-      </Hover>{' '}
+      </Hover>
       <div>{user?.name}</div>
     </Inline>
     <Inline>
       <Hover>
         <Location />
-      </Hover>{' '}
+      </Hover>
       {user?.address.city} {user?.address.street}
     </Inline>
     <Inline>

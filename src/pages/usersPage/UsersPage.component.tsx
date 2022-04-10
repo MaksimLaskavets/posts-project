@@ -7,6 +7,7 @@ import UserItem from '../../components/user/userItem/UserItem.component'
 import {IUser} from '../../types/types'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {useActions} from '../../hooks/useActions'
+
 import {Wrap} from './UsersPage.styles'
 
 const UsersPage: FC = () => {

@@ -1,7 +1,9 @@
 import {HeartOutlined, MessageOutlined} from '@ant-design/icons'
 import React, {FC} from 'react'
+
 import {IComment} from '../../types/types'
 import Profile from '../icons/Profile'
+
 import {
   CommentBody,
   CommentConteiner,
@@ -18,7 +20,7 @@ const CommentItem: FC<PostProps> = ({comment}) => (
     <CommentLine>
       <Hover>
         <Profile />
-      </Hover>{' '}
+      </Hover>
       {comment.email}
     </CommentLine>
     <CommentLine>{comment.name.toUpperCase()}</CommentLine>
