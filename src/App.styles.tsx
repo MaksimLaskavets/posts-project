@@ -7,17 +7,17 @@ export const NavbarWrap = styled.div`
 
 export const Global = createGlobalStyle`
 a {
-	text-decoration: none;
-	color: black;
+text-decoration: none;
+color: black;
 }
 a:hover{
-	color:white;
+color:white;
 }
 *{
-	padding:0;
-	margin:0;
-	box-sizing:border-box;
-	font-family:sans-serif;
+padding:0;
+margin:0;
+box-sizing:border-box;
+font-family:sans-serif;
 }`
 
 export const IconeProfile = styled.p`
