@@ -1,7 +1,6 @@
 import React, {FC, useEffect} from 'react'
 import {useNavigate} from 'react-router'
 
-import {LoadingOutlined} from '@ant-design/icons'
 import List from '../../components/list/List.component'
 import UserItem from '../../components/user/userItem/UserItem.component'
 import {IUser} from '../../types/types'
@@ -9,6 +8,7 @@ import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {useActions} from '../../hooks/useActions'
 
 import {Wrap} from './UsersPage.styles'
+import {MyLoading} from '../../components/loading/MyLoading.component'
 
 const UsersPage: FC = () => {
   const {users, loading, error} = useTypedSelector((state) => state.users)
@@ -20,12 +20,7 @@ const UsersPage: FC = () => {
   }, [])
 
   if (loading) {
-    return (
-      <div>
-        Loading
-        <LoadingOutlined />
-      </div>
-    )
+    return <MyLoading />
   }
   if (error) {
     return <h1>Error</h1>

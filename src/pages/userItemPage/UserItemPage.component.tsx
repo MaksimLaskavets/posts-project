@@ -1,7 +1,6 @@
 import React, {FC, useEffect} from 'react'
 import {useParams, useNavigate} from 'react-router'
 
-import {LoadingOutlined} from '@ant-design/icons'
 import {IPost} from '../../types/types'
 import List from '../../components/list/List.component'
 import PostItem from '../../components/post/PostItem.component'
@@ -10,6 +9,7 @@ import {useActions} from '../../hooks/useActions'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
 import UserInfo from '../../components/userInfo/UserInfo.component'
 import {MyButton} from '../../components/button/Button.component'
+import {MyLoading} from '../../components/loading/MyLoading.component'
 
 const UserItemPage: FC = () => {
   const {user, loadingUser, errorUser} = useTypedSelector((state) => state.user)
@@ -26,12 +26,7 @@ const UserItemPage: FC = () => {
   }, [])
 
   if (loadingUser || loadingPosts || !user) {
-    return (
-      <div>
-        Loading
-        <LoadingOutlined />
-      </div>
-    )
+    return <MyLoading />
   }
   if (errorUser || errorPosts) {
     return <h1>Error</h1>

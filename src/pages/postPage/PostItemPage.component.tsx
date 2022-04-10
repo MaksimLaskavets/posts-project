@@ -1,7 +1,6 @@
 import React, {FC, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 
-import {LoadingOutlined} from '@ant-design/icons'
 import List from '../../components/list/List.component'
 import CommentItem from '../../components/comment/CommentItem.component'
 import {IComment} from '../../types/types'
@@ -12,6 +11,7 @@ import PostInfo from '../../components/postInfo/PostInfo.component'
 import {MyButton} from '../../components/button/Button.component'
 
 import {PostPageWrap} from './PostPage.styles'
+import {MyLoading} from '../../components/loading/MyLoading.component'
 
 const PostItemPage: FC = () => {
   const {post, loadingPost, errorPost} = useTypedSelector((state) => state.post)
@@ -27,12 +27,7 @@ const PostItemPage: FC = () => {
   }, [])
 
   if (loadingPost || loadingComments || !post) {
-    return (
-      <div>
-        Loading
-        <LoadingOutlined />
-      </div>
-    )
+    return <MyLoading />
   }
   if (errorPost || errorComments) {
     return <h1>Error</h1>

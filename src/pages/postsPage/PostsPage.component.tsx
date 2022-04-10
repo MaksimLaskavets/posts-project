@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import {useNavigate} from 'react-router'
 
-import {LoadingOutlined} from '@ant-design/icons'
 import List from '../../components/list/List.component'
 import {IPost} from '../../types/types'
 import PostItem from '../../components/post/PostItem.component'
@@ -10,6 +9,7 @@ import {useActions} from '../../hooks/useActions'
 import {MyInput} from '../../components/input/MyInput'
 
 import {Input} from './PostsPage.styles'
+import {MyLoading} from '../../components/loading/MyLoading.component'
 
 const PostsPage = () => {
   const {posts, loadingPosts, errorPosts} = useTypedSelector(
@@ -23,12 +23,7 @@ const PostsPage = () => {
   }, [])
 
   if (loadingPosts) {
-    return (
-      <div>
-        Loading
-        <LoadingOutlined />
-      </div>
-    )
+    return <MyLoading />
   }
   if (errorPosts) {
     return <h1>Error</h1>
