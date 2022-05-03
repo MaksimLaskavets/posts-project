@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, {useState, FC} from 'react'
 import {MyInput} from '../../../components/input/MyInput'
 
@@ -9,9 +10,28 @@ const SignUp: FC = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const submitHandler = (event: any) => {
+  const submitHandler = async (event: any) => {
     event.preventDefault()
     console.log(name, userName, email, password)
+    try {
+      const headers = {
+        'Content-Type': 'application/json',
+      }
+      const res: any = await axios.post(
+        'http://localhost:4000/signup',
+        {
+          name,
+          userName,
+          email,
+          password,
+        },
+        {headers},
+      )
+      const data = await res
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
   }
   return (
     <SignUpWrap>
