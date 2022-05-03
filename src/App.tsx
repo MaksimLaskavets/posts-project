@@ -5,7 +5,8 @@ import PostsPage from './pages/postsPage/PostsPage.component'
 import UsersPage from './pages/usersPage/UsersPage.component'
 import UserItemPage from './pages/userItemPage/UserItemPage.component'
 import PostItemPage from './pages/postPage/PostItemPage.component'
-import SignIn from './pages/signInPage/SignIn.component'
+import Signup from './pages/auth/signUpPage/SignUp.component'
+import Login from './pages/auth/Login'
 import Navbar from './components/navbar/Navbar.component'
 
 import {AppWrap, NavbarWrap} from './App.styles'
@@ -20,7 +21,8 @@ const App = () => (
       <Route path="/users" element={<UsersPage />} />
       <Route path="/users/:id" element={<UserItemPage />} />
       <Route path="/posts/:id" element={<PostItemPage />} />
-      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   </AppWrap>
 )

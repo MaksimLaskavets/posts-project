@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SignInWrap = styled.div`
+export const SignUpWrap = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,9 +8,9 @@ export const SignInWrap = styled.div`
 `
 export const ButtonsContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `
-export const SignInButton = styled.button`
+export const SignUpButton = styled.button`
   padding: 5px;
   margin: 0 5px;
   cursor: pointer;
@@ -23,10 +23,4 @@ export const SignInButton = styled.button`
     background-color: #ffd591;
     color: white;
   }
-`
-
-export const SignInTitle = styled.div`
-  font-weight: 600;
-  display: flex;
-  margin: 5px auto;
 `

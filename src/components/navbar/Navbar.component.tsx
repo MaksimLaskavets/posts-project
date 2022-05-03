@@ -6,9 +6,13 @@ import {Conteiner, LinksWrap, LogoWrap} from './Navbar.styles'
 
 const Navbar: FC = () => (
   <Conteiner>
-    <LogoWrap>
+    <LinksWrap>
+      <Link to="/login">Login</Link>
+      <Link to="/signup">Signup</Link>
+    </LinksWrap>
+    {/* <LogoWrap>
       <MyLogo />
-    </LogoWrap>
+    </LogoWrap> */}
     <LinksWrap>
       <Link to="/users">Users list</Link>
       <Link to="/">Posts list</Link>
